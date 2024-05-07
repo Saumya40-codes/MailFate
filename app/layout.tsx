@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "MailFate",
-  description: "Check your email's fate",
+  description: "Check your mail's fate",
 };
 
 export default function RootLayout({
