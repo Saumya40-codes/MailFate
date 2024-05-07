@@ -4,6 +4,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
+import { ProgressBar } from "./ProgressBar";
+
 import Results from "./Results";
 
 const TextBox = () => {
@@ -17,6 +19,8 @@ const TextBox = () => {
         reason: ""
     });
 
+    const [loading, setLoading] = useState<boolean>(false);
+    const [completeLoading, setCompleteLoading] = useState<boolean>(false);
 
     const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setMessage(e.target.value);
@@ -29,6 +33,9 @@ const TextBox = () => {
             spam: null,
             reason: ""
         });
+
+        setLoading(true);
+        setCompleteLoading(true);
 
         try{
             const response = await fetch("http://localhost:8000/predict", {
@@ -51,6 +58,13 @@ const TextBox = () => {
         catch(err){
             console.log(err);
         }
+
+        finally{    
+            setCompleteLoading(false);
+            setTimeout(() => {
+                setLoading(false);
+            }, 500);
+        }
     }
 
   return (
@@ -59,7 +73,9 @@ const TextBox = () => {
         <Textarea value={message} placeholder="Enter your mail here......" onChange={(e)=> handleChange(e)} />
         <Button onClick={(e) => handleCheck(e)}>Check for Spam!</Button>
 
-        {result.spam !== null && <Results isspam={result.spam} reason={result.reason} />}
+        {result.spam !== null && !loading && <Results isspam={result.spam} reason={result.reason} />}
+
+        {!result.spam && loading && <ProgressBar hasloaded={!completeLoading} />}
     </div>
   )
 }
