@@ -22,7 +22,7 @@ def classifier(request):
         prediction = predict_email(transformed_text)
         print(prediction)
 
-        reason = explain(text, prediction==1)
+        reason = explain(text, True if prediction == 1 else False)
 
         if prediction == 0:
             return JsonResponse({"prediction": "Not Spam", "reason": reason})

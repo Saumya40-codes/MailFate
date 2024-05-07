@@ -18,7 +18,7 @@ export function ProgressBar({hasloaded}:{hasloaded:boolean}) {
   }, [hasloaded])
 
   return (
-    <div className="flex flex-col justify-center items-center mx-5">
+    <div className="flex flex-col justify-center items-center my-12">
         <Progress value={progress} className="w-[60%]" />
     </div>
   )
