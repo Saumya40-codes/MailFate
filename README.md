@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# MailFate
+*Know the fate of your mail.*
 
-## Getting Started
+____
+Check whether mail will be spam or not with a proper explanation of the predicted result.
 
-First, run the development server:
+![image](https://github.com/Saumya40-codes/MailFate/assets/115284013/b67b0003-5b5c-48ea-8443-19756191c757)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+![image](https://github.com/Saumya40-codes/MailFate/assets/115284013/3177cc17-2235-400a-affa-62308c9a18ed)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+https://github.com/Saumya40-codes/MailFate/assets/115284013/91e1e4a3-6dc6-49ce-9abe-957837ec0204
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+____
+Tech Stack: 
+- scikit learn
+- nltk
+- django
+- next.js
+- tailwindcss
+- langchain and hugface (inorder to get the proper explanation about why mail is spam/not spam)
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+____
+Model Used: 
+- Text Processing
+  - TF-IDF
+- Prediction
+  - *Naive Bayes*
+    -  precision score: 1.0
+    -  accuracy: 0.97
