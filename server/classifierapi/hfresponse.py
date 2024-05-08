@@ -28,4 +28,5 @@ llm = HuggingFaceEndpoint(
 )
 
 def explain(text, isspam):
+    print(text, isspam)
     return llm.invoke(f"The following e-mail has been identified as {'a spam' if isspam else 'not as a spam'} can you please provide a reason why?\n{text}")

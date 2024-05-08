@@ -15,12 +15,15 @@ def classifier(request):
 
         # preprocess the text
         transformed_text = transform_text(text)
+        print(transformed_text)
 
         # prediction
 
         prediction = predict_email(transformed_text)
+        print(prediction)
 
         reason = explain(text, True if prediction == 1 else False)
+        print(reason)
 
         if prediction == 0:
             return JsonResponse({"prediction": "Not Spam", "reason": reason})
