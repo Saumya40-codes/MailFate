@@ -30,7 +30,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 DEBUG = os.environ['DEBUG']
 
 ALLOWED_HOSTS = [
-    '.vercel.app', 
+    '.onrender.com', 
 ]
 
 
