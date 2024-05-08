@@ -3,7 +3,7 @@ import TextBox from "./components/TextBox";
 
 export default function Home() {
   return (
-    <div className="bg-stone-950 h-screen w-screen flex flex-col items-center gap-5">
+    <div className="flex flex-col items-center gap-5 bg-stone-950 min-h-screen">
       <Main />
       <TextBox />
     </div>

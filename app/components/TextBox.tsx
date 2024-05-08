@@ -38,7 +38,7 @@ const TextBox = () => {
         setCompleteLoading(true);
 
         try{
-            const response = await fetch("http://localhost:8000/predict", {
+            const response = await fetch("https://mailfate.onrender.com/predict", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -52,7 +52,7 @@ const TextBox = () => {
 
             setResult({
                 spam: data.prediction == "Spam" ? true : false,
-                reason: String(data.reason)
+                reason: String(data.reason).includes("spam") ? data.reason : "no reason provided"
             });
         }
         catch(err){
@@ -68,14 +68,16 @@ const TextBox = () => {
     }
 
   return (
-    <div className="grid w-[800px] gap-1.5">
-        <Label htmlFor="message">Your message</Label>
-        <Textarea value={message} placeholder="Enter your mail here......" onChange={(e)=> handleChange(e)} />
-        <Button onClick={(e) => handleCheck(e)}>Check for Spam!</Button>
+    <div className="flex flex-col justify-center items-center mb-8">
+        <div className="grid w-[800px] gap-1.5 bg-stone-950">
+            <Label htmlFor="message">Your message</Label>
+            <Textarea value={message} placeholder="Enter your mail here......" onChange={(e)=> handleChange(e)} />
+            <Button onClick={(e) => handleCheck(e)}>Check for Spam!</Button>
 
-        {result.spam !== null && !loading && <Results isspam={result.spam} reason={result.reason} />}
+            {result.spam !== null && !loading && <Results isspam={result.spam} reason={result.reason} />}
 
-        {!result.spam && loading && <ProgressBar hasloaded={!completeLoading} />}
+            {!result.spam && loading && <ProgressBar hasloaded={!completeLoading} />}
+        </div>
     </div>
   )
 }
