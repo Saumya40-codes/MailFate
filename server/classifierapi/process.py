@@ -2,6 +2,7 @@ import nltk
 import string
 
 nltk.download('punkt')
+nltk.download('stopwords')
 
 from nltk.corpus import stopwords
 import string
