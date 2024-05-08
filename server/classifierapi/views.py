@@ -9,27 +9,27 @@ import json
 # Create your views here.
 @csrf_exempt
 def classifier(request):
-
-    print(request.body)
     try:
-        data = json.loads(request.body)
+        # Decode the request body as UTF-8 and remove newline characters
+        body_unicode = request.body.decode('utf-8').replace('\n', '')
+        
+        # Parse the JSON data
+        data = json.loads(body_unicode)
         text = data['text']
 
         # preprocess the text
         transformed_text = transform_text(text)
-        print(transformed_text)
 
         # prediction
-
         prediction = predict_email(transformed_text)
-        print(prediction)
 
-        reason = explain(text, True if prediction == 1 else False)
-        print(reason)
+        # Get explanation
+        reason = explain(text, prediction == 1)
 
         if prediction == 0:
             return JsonResponse({"prediction": "Not Spam", "reason": reason})
-    
+
         return JsonResponse({"prediction": "Spam", "reason": reason})
-    except:
+    except Exception as e:
+        print(str(e))
         return JsonResponse({"error": "An error occurred."})
