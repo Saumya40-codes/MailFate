@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'classifierapi',
     'corsheaders',
+    'mailfate.onrender.com'
 ]
 
 MIDDLEWARE = [

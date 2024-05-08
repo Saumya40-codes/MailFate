@@ -1,11 +1,21 @@
 import os
+import sys
 from langchain_community.llms import HuggingFaceEndpoint
 from dotenv import load_dotenv
 
 load_dotenv()
 
 
-api_token = os.environ["HUGGINGFACEHUB_API_TOKEN"]
+current_dir = os.path.dirname(__file__)
+
+# Navigate to the parent directory
+parent_dir = os.path.abspath(os.path.join(current_dir, '..'))
+
+# Add the parent directory to the system path
+sys.path.append(parent_dir)
+
+# Now you can access the environment variable
+api_token = os.environ.get("HUGGINGFACEHUB_API_TOKEN")
 
 llm = HuggingFaceEndpoint(
     huggingfacehub_api_token= os.environ["HUGGINGFACEHUB_API_TOKEN"],
