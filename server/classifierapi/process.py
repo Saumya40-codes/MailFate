@@ -1,13 +1,14 @@
 import nltk
 import string
+
+nltk.download('punkt')
+
 from nltk.corpus import stopwords
 import string
 
 from nltk.stem.porter import PorterStemmer
 
 ps = PorterStemmer()
-
-nltk.download('punkt')
 
 def transform_text(text):
   text = text.lower()

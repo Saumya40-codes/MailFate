@@ -52,7 +52,7 @@ const TextBox = () => {
 
             setResult({
                 spam: data.prediction == "Spam" ? true : false,
-                reason: data.reason
+                reason: String(data.reason)
             });
         }
         catch(err){
