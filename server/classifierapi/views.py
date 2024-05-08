@@ -9,8 +9,6 @@ import json
 # Create your views here.
 @csrf_exempt
 def classifier(request):
-
-    print(request.body)
     try:
         # Decode the request body as UTF-8 and remove newline characters
         body_unicode = request.body.decode('utf-8').replace('\n', '')
@@ -21,15 +19,12 @@ def classifier(request):
 
         # preprocess the text
         transformed_text = transform_text(text)
-        print(transformed_text)
 
         # prediction
         prediction = predict_email(transformed_text)
-        print(prediction)
 
         # Get explanation
         reason = explain(text, prediction == 1)
-        print(reason)
 
         if prediction == 0:
             return JsonResponse({"prediction": "Not Spam", "reason": reason})
