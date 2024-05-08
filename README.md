@@ -1,6 +1,8 @@
 # MailFate
 *Know the fate of your mail.*
+____
 
+(Output in the deployed link might be slow on the first try as *render* might take ~ 30 seconds to restart if it is turned off due to inactivity)
 ____
 Check whether mail will be spam or not with a proper explanation of the predicted result.
 
@@ -10,7 +12,6 @@ Check whether mail will be spam or not with a proper explanation of the predicte
 
 
 https://github.com/Saumya40-codes/MailFate/assets/115284013/91e1e4a3-6dc6-49ce-9abe-957837ec0204
-
 
 ____
 Tech Stack: 
