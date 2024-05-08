@@ -9,6 +9,8 @@ import json
 # Create your views here.
 @csrf_exempt
 def classifier(request):
+
+    print(request.body)
     try:
         data = json.loads(request.body)
         text = data['text']
