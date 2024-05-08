@@ -69,8 +69,8 @@ const TextBox = () => {
 
   return (
     <div className="flex flex-col justify-center items-center mb-8">
-        <div className="grid w-[810px] md-m:max-w-screen-sm gap-1.5 bg-stone-950 px-7">
-            <Label htmlFor="message">Your message</Label>
+        <div className="grid w-[350px] lg:w-[850px] md:w-[600px] sm:w-[500px] bg-stone-950 p-4 px-7">
+            <Label htmlFor="message" className="text-slate-200 mb-3">Your mail</Label>
             <Textarea value={message} placeholder="Enter your mail here......" onChange={(e)=> handleChange(e)} />
             <Button onClick={(e) => handleCheck(e)}>Check for Spam!</Button>
 
